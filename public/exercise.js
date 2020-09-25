@@ -30,6 +30,7 @@ async function initExercise() {
 
 }
 
+
 initExercise();
 
 function handleWorkoutTypeChange(event) {
