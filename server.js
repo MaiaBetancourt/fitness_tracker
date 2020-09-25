@@ -1,8 +1,7 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-// const db = require("./models");
-
+let db = require("./models");
 
 const app = express();
 const PORT = 8080;
@@ -17,17 +16,17 @@ app.use(logger("dev"));
 
 
 
-app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/public/index.html");
-});
+// app.get("/", function (req, res) {
+//   res.sendFile(__dirname + "/public/index.html");
+// });
 
-app.get("/exercise", function (req, res) {
-  res.sendFile(__dirname + "/public/exercise.html");
-});
+// app.get("/exercise", function (req, res) {
+//   res.sendFile(__dirname + "/public/exercise.html");
+// });
 
-app.get("/stats", function (req, res) {
-  res.sendFile(__dirname + "/public/stats.html");
-});
+// app.get("/stats", function (req, res) {
+//   res.sendFile(__dirname + "/public/stats.html");
+// });
 
 app.post("/api/workouts", function (req, res) {
   // console.log(req.body.name);
@@ -35,12 +34,16 @@ app.post("/api/workouts", function (req, res) {
   console.log(req.body);
 });
 
-mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost/workout-tracker", {
-    useNewUrlParser: true,
-  })
-  .then(() => console.log("mongodb connected"))
-  .catch((err) => console.log(err));
+mongoose.connect("mongodb://localhost/workout", {
+  useNewUrlParser: true,
+  useFindAndModify: false
+});
+// mongoose
+//   .connect(process.env.MONGODB_URI || "mongodb://localhost/workout-tracker", {
+//     useNewUrlParser: true,
+//   })
+//   .then(() => console.log("mongodb connected"))
+//   .catch((err) => console.log(err));
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT}`)
