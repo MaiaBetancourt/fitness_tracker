@@ -1,11 +1,11 @@
-// const BASE_URL = 'http://localhost:8080'
+const BASE_URL = 'http://localhost:8080'
 
 const API = {
   async getLastWorkout() {
     let res;
     try {
-      // res = await fetch(BASE_URL + "/api/workouts");
-      res = await fetch("/api/workouts");
+      res = await fetch(BASE_URL + "/api/workouts");
+      // res = await fetch("/api/workouts");
     } catch (err) {
       console.log(err)
     }
@@ -15,7 +15,6 @@ const API = {
   },
   async addExercise(data) {
     const id = location.search.split("=")[1];
-
     const res = await fetch("/api/workouts/" + id, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },

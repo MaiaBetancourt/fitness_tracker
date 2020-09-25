@@ -1,7 +1,8 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const db = require("./models");
+// const db = require("./models");
+
 
 const app = express();
 const PORT = 8080;
@@ -12,6 +13,9 @@ app.use(express.json());
 app.use(express.static("public"));
 
 app.use(logger("dev"));
+
+
+
 
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/public/index.html");
@@ -26,9 +30,9 @@ app.get("/stats", function (req, res) {
 });
 
 app.post("/api/workouts", function (req, res) {
-  console.log(req.body.name);
-  res.send(`request got sent ${req.body.name}`);
-  // console.log(req.body);
+  // console.log(req.body.name);
+  // res.send(`request got sent ${req.body.name}`);
+  console.log(req.body);
 });
 
 mongoose
