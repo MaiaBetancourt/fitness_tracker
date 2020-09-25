@@ -13,7 +13,8 @@ app.use(express.static("public"));
 
 app.use(logger("dev"));
 
-
+app.use(require("./routes/api.js"));
+app.use(require("./routes/html.js"));
 
 
 // app.get("/", function (req, res) {
@@ -28,11 +29,11 @@ app.use(logger("dev"));
 //   res.sendFile(__dirname + "/public/stats.html");
 // });
 
-app.post("/api/workouts", function (req, res) {
-  // console.log(req.body.name);
-  // res.send(`request got sent ${req.body.name}`);
-  console.log(req.body);
-});
+// app.post("/api/workouts", function (req, res) {
+//   // console.log(req.body.name);
+//   // res.send(`request got sent ${req.body.name}`);
+//   console.log(req.body);
+// });
 
 mongoose.connect("mongodb://localhost/workout", {
   useNewUrlParser: true,
