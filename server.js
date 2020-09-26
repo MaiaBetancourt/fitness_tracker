@@ -1,7 +1,9 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-let db = require("./models");
+// let db = require("./models");
+// const http = require("http");
+require("dotenv").config();
 
 const app = express();
 const PORT = 8080;
