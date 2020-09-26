@@ -19,7 +19,7 @@ const apiRoutes = require("./routes/api.js");
 app.use("/api", apiRoutes);
 app.use(require("./routes/html.js"));
 
-mongoose.connect(process.env.MONGO_URI || "mongodb://localhost/workouts", {
+mongoose.connect(process.env.MONGO_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
