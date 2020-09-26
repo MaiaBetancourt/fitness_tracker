@@ -10,13 +10,12 @@ app.get("/workouts/range", async function (req, res) {
 });
 
 app.post("/workouts", async function (req, res) {
-  // res.send(`request got sent ${req.body.name}`);
   console.log(req.body);
   res.json(await db.Workout.create(req.body));
 });
 
 app.put("/workouts/:id", async function (req, res) {
-    console.log(req.body);
+  console.log(req.body);
   res.json(
     await db.Workout.findByIdAndUpdate(req.params.id, {
       $push: { exercises: req.body },

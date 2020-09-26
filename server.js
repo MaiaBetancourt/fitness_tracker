@@ -15,38 +15,13 @@ app.use(logger("dev"));
 
 const apiRoutes = require("./routes/api.js");
 
-app.use('/api', apiRoutes);
+app.use("/api", apiRoutes);
 app.use(require("./routes/html.js"));
-
-
-// app.get("/", function (req, res) {
-//   res.sendFile(__dirname + "/public/index.html");
-// });
-
-// app.get("/exercise", function (req, res) {
-//   res.sendFile(__dirname + "/public/exercise.html");
-// });
-
-// app.get("/stats", function (req, res) {
-//   res.sendFile(__dirname + "/public/stats.html");
-// });
-
-// app.post("/api/workouts", function (req, res) {
-//   // console.log(req.body.name);
-//   // res.send(`request got sent ${req.body.name}`);
-//   console.log(req.body);
-// });
 
 mongoose.connect("mongodb://localhost/workout", {
   useNewUrlParser: true,
-  useFindAndModify: false
+  useFindAndModify: false,
 });
-// mongoose
-//   .connect(process.env.MONGODB_URI || "mongodb://localhost/workout-tracker", {
-//     useNewUrlParser: true,
-//   })
-//   .then(() => console.log("mongodb connected"))
-//   .catch((err) => console.log(err));
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT}`)
