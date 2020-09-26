@@ -19,10 +19,11 @@ const apiRoutes = require("./routes/api.js");
 app.use("/api", apiRoutes);
 app.use(require("./routes/html.js"));
 
-mongoose.connect("mongodb://localhost/workout", {
+mongoose.connect(process.env.MONGO_URI || "mongodb://localhost/workouts", {
   useNewUrlParser: true,
-  useFindAndModify: false,
   useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
 });
 
 app.listen(PORT, () =>
