@@ -26,6 +26,6 @@ app.put("/workouts/:id", async function (req, res) {
 db.Workout.find().then((dbWorkouts) => {
   const workout = dbWorkouts[0].toJSON();
   console.log(workout);
-})
+});
 
 module.exports = app;
