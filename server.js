@@ -13,7 +13,9 @@ app.use(express.static("public"));
 
 app.use(logger("dev"));
 
-app.use(require("./routes/api.js"));
+const apiRoutes = require("./routes/api.js");
+
+app.use('/api', apiRoutes);
 app.use(require("./routes/html.js"));
 
 
